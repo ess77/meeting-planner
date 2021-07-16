@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.hibernate.annotations.Synchronize;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,8 @@ import com.ess.meetingplanner.repository.FeatureRepository;
 import com.ess.meetingplanner.repository.MeetingRepository;
 import com.ess.meetingplanner.repository.RoomRepository;
 import com.ess.meetingplanner.service.PlanningService;
+
+import lombok.Synchronized;
 
 @RestController
 public class PlanningController {
@@ -98,7 +101,7 @@ public class PlanningController {
 	}
 	
 	@PostMapping("/addMeeting")
-//	@Transactional
+	@Synchronized
 	public ModelAndView postPlanningForm(ModelAndView mav, @ModelAttribute Meeting meetingPosted) {
 		Room roomProposal = planningService.getPlanning(meetingPosted);
 		Room roomSelected = null;

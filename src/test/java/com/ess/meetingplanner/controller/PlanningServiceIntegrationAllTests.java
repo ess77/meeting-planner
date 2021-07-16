@@ -35,8 +35,6 @@ import com.ess.meetingplanner.service.RoomService;
  */
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ComponentScan(basePackages = {"com.ess.meetingplanner"})
-//@DataJpaTest
-//@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class PlanningServiceIntegrationAllTests {
 	
 	/** Logger **/
