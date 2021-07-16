@@ -42,21 +42,5 @@ Tests  : Jupiter 5, Mockito
     
 ---------------------------------------------------------
 
-# Utilisation des api :
- * Chargement de toutes les tables :
- `eu.europa.schengen.ees.load.repository.CodeTableRecords#getAllRecords()`
-
-* Choix d'une table :
-`eu.europa.schengen.ees.load.type.CodeTableType.xxxx`
-
-* Obtention du reader sur cette table
-`CodeTable codeTable = eu.europa.schengen.ees.load.repository.CodeRecordReader.ofType(CodeTableType)`
-
-* lecture d'un code
-`codeTable.getRecordsByCode("xxx")`
-
-* lecture d'un label
-`codeTable.getRecordsByLabel("xxx")`
-
     
 ####  NB: Projet également disponible sous : `https://innersource.soprasteria.com/martial.elfort/ees-load-codes-tables.git`
