@@ -43,4 +43,4 @@ Tests  : Jupiter 5, Mockito
 ---------------------------------------------------------
 
     
-####  NB: Projet également disponible sous : `https://innersource.soprasteria.com/martial.elfort/ees-load-codes-tables.git`
+####  NB: Projet également disponible sous : `https://github.com/ess77/meeting-planner.git`
