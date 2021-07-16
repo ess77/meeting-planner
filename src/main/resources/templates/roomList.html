@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Liste des salles</title>
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+</head>
+<body>
+	  <div class="card">
+            <div class="card-body">
+                <div class="col-md-10">
+					<h3>Liste des salles:</h3>
+					<a class="btn btn-primary" th:href="@{/newMeeting}">Ajouter une réunion</a> <br />
+					<br />
+					<div>
+						<table border="1">
+							<tr>
+								<th>Nom de Salle</th>
+								<th>capacité initiale</th>
+								<th>capacité sanitaire</th>
+								<th>features</th>
+							</tr>
+							<tr th:each="room : ${roomList}">
+								<td th:utext="${room.name}">...</td>
+								<td th:utext="${room.capacity}">...</td>
+								<td th:utext="${room.sanitary_capacity}">...</td>
+								<td th:utext="${room.features}">...</td>
+							</tr>
+						</table>
+				</div>
+			</div>
+		</div>
+		<!-- Check if errorMessage is not null and not empty -->
+					
+		<div th:if="${errorMessage}" th:utext="${errorMessage}" style="color: red; font-style: italic;">...</div>
+	</div>
+</body>
+</html>

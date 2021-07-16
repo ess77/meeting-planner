@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Nouvelle réunion planifiée</title>
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"/>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>
+   </head>
+   <body>
+     <div class="card">
+            <div class="card-body">
+               <div class="col-md-5">
+					    <h3>Réunion planifiée :</h3>
+						<div class="my-3">
+						    <p><strong>Type de réunion :</strong> <span th:text="${meeting.type}"></span></p>
+						    <p><strong>Salle :</strong> <span th:text="${meeting.roomSelected}"></span></p>
+						    <p><strong>Horaire de début :</strong> <span th:text="${meeting.startTime}"></span></p>
+						    <p><strong>Horaire de fin :</strong> <span th:text="${meeting.endTime}"></span></p>
+						    <p><strong>Nombre de participants :</strong> <span th:text="${meeting.attendantsNumber}"></span></p>
+						    <p><strong>Statut :</strong> <span th:text="${meeting.activated}"></span></p>
+						</div>
+						<!-- <div class="alert alert-danger">
+							<h3  th:utext="${message}">...</h3>
+						</div> -->
+						<a class="btn btn-primary"  th:href="@{/listAllMeetings}">Afficher la liste des réunions</a>
+		    		</div>
+	    	</div>
+    	</div>
+   </body>
+</html>

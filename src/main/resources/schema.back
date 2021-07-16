@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS `ROOM` (
+ `id` bigint(20) NOT NULL AUTO_INCREMENT,
+ `name` varchar(50) NOT NULL,
+ `capacity` int(3) NOT NULL,
+ `features` varchar(200),
+ PRIMARY KEY (`id`)
+);
+
+

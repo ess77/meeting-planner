@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Liste de disponibilité des ressources</title>
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+</head>
+<body>
+	  <div class="card">
+            <div class="card-body">
+                <div class="col-md-10">
+					<h3>Liste de disponibilité des ressources :</h3>
+					<a class="btn btn-primary" th:href="@{/newMeeting}">Ajouter une réunion</a> <br />
+					<br />
+					<div>
+						<table border="1">
+							<tr>
+								<th>Element</th>
+								<th>Quantité initiale</th>
+								<th>Quantité restante</th>
+							</tr>
+							<tr th:each="feature : ${extraFeaturesAvailableList}">
+								<td th:utext="${feature.featureName}">...</td>
+								<td th:utext="${feature.quantity}">...</td>
+								<td th:utext="${feature.availableQuantity}">...</td>
+							</tr>
+						</table>
+					</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

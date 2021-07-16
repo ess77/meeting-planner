@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Planifier une réunion</title>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/jquery.datetimepicker.min.css}" />
+</head>
+<body>
+    <div class="container my-5">
+        <h3>Créer une réunion</h3>
+        <div class="card">
+            <div class="card-body">
+                <div class="col-md-10">
+                    <form th:action="@{/addMeeting}" th:object="${meeting}" method="POST">
+                        <div class="row">
+                            <div class="form-group col-md-8">
+                               <label>Type : </label> 
+                               <select th:field="*{type}" class="form-control">
+									<option th:each="meetingType : ${meetingTypes}" th:text="${meetingType.name}" th:value="${meetingType.name}">---</option>
+								</select>
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label>Horaire de début:</label> 
+								<input type="text" id="debut" class="form-control" th:field="*{startTime}">
+								<span class="glyphicon-calendar glyphicon"></span>
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label>Horaire de fin:</label> 
+								<input type="text" id="fin" class="form-control" th:field="*{endTime}" >
+								<span class="glyphicon-calendar glyphicon"></span>
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label>Nombre:</label>
+								 <input type="text" th:field="*{attendantsNumber}" class="form-control" th:classappend="${#fields.hasErrors('attendantsNumber')} ? 'errorMessage'"/>
+								 <p th:if="${#fields.hasErrors('attendantsNumber')}" th:errors="*{attendantsNumber}">Invalid Number</p>
+                            </div>
+ 
+                            <div class="col-md-6">
+                                <label>Plannifier :</label><br />
+								<input class="btn btn-primary" type="submit" value="Valider" width="100px" />
+                            </div>
+ 
+								<!-- Check if errorMessage is not null and not empty -->
+					
+								<div th:if="${errorMessage}" th:utext="${errorMessage}" style="color: red; font-style: italic;">...</div>
+							
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/js/jquery.min.js" crossorigin="anonymous" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" crossorigin="anonymous" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous" type="text/javascript"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+<script src='/js/jquery.datetimepicker.js'></script>
+<script type="text/javascript">
+	var currentTime = new Date();
+	$(function () {
+	  $('#debut').datetimepicker({	  
+		  format: 'd-m-Y - H:i',
+		  allowTimes:[
+			  '08:00', '09:00', '10:00', '11:00',
+		      '12:00', '13:00', '15:00', '16:00',
+		      '18:00', '19:00', '20:00'
+		    ],
+			timepicker: true,
+		    i18n:{
+				  fr:{
+				   months:[
+				    'Janvier','Fevrier','Mars','Avril',
+				    'Mai','Juin','Juillet','Aout',
+				    'Septembre','Octobre','Novembre','Decembre',
+				   ],
+				   dayOfWeek:[
+				    "Di.", "Lu", "Ma", "Me", 
+				    "Je", "Ve", "Sa.",
+				   ]
+				  }
+				 },
+			timeStart: currentTime.getTime(),
+	  });
+	  $('#fin').datetimepicker({	  
+		  format: 'd-m-Y - H:i',
+		  allowTimes:[
+			  '08:00', '09:00', '10:00', '11:00',
+		      '12:00', '13:00', '15:00', '16:00',
+		      '18:00', '19:00', '20:00'
+		    ],
+			timepicker: true,
+		    i18n:{
+				  fr:{
+				   months:[
+				    'Janvier','Fevrier','Mars','Avril',
+				    'Mai','Juin','Juillet','Aout',
+				    'Septembre','Octobre','Novembre','Decembre',
+				   ],
+				   dayOfWeek:[
+				    "Di.", "Lu", "Ma", "Me", 
+				    "Je", "Ve", "Sa.",
+				   ]
+				  }
+				 },
+	  });
+	});
+
+</script>  
+</html>

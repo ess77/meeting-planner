@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Liste des réunions planifiées</title>
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+</head>
+<body>
+	  <div class="card">
+          <div class="card-body">
+              <div class="col-md-6">
+					<h3>Liste des réunions planifiées :</h3>
+					<a class="btn btn-primary" th:href="@{/newMeeting}">Ajouter une réunion</a>
+					<a class="btn btn-primary" th:href="@{/listExtraFeaturesAvailable}">Liste des ressources disponibles</a>
+					<a class="btn btn-primary" th:href="@{/listAllRooms}">Liste des salles</a> <br />
+					<br />
+					<div>
+						<table border="1">
+							<tr>
+								<th>Type de réunion</th>
+								<th>Salle selectionnée</th>
+								<th>Horaire de Début</th>
+								<th>Horaire de Fin</th>
+								<th>Nb Participants</th>
+								<th>Statut</th>
+							</tr>
+							<tr th:each="meeting : ${planningList}">
+								<td th:utext="${meeting.type}">...</td>
+								<td th:utext="${meeting.roomSelected}"></td>
+								<td th:utext="${meeting.startTime}">...</td>
+								<td th:utext="${meeting.endTime}">...</td>
+								<td th:utext="${meeting.attendantsNumber}">...</td>
+								<td th:utext="${meeting.activated}">...</td>
+							</tr>
+						</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

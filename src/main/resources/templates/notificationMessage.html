@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Notification</title>
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+</head>
+<body>
+	  <div class="card">
+            <div class="card-body">
+                <div class="col-md-5">
+					<h3>Notification</h3>
+					<br />
+					<br />
+					<div th:if="${errorMessage}" th:utext="${errorMessage}" class="alert alert-info">...</div>
+					<br />
+					<br />
+					<a class="btn btn-primary" th:href="@{/newMeeting}">Ajouter une réunion</a> 
+				</div>
+		</div>
+	</div>
+</body>
+</html>
