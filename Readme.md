@@ -21,7 +21,7 @@ Tests  : Jupiter 5, Mockito
     <font color="green"><i> docker build -t meeting-planner .</i></font>
 
 2 : Lancer l'exécution de ce conteneur :
-    <font color="green"><i>docker run  -dp 8087:8080 meeting-panner</i></font>
+    <font color="green"><i>docker run  -dp 8087:8080 meeting-planner</i></font>
 
 3 : Accès à l'interface utilisateur :
     <font><i>http://localhost:8087</i></font>
