@@ -1,4 +1,4 @@
-package com.ess.meetingplanner.controller;
+package com.ess.meetingplanner.service;
 
 
 import static org.junit.jupiter.api.Assertions.assertTrue;

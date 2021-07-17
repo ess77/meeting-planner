@@ -98,7 +98,7 @@ public class Room {
 		}
 	}
 	
-	public static Room calculateSanitary_capacity(Room room ) {
+	public static Room calculateSanitaryCapacity(Room room ) {
 		room.setSanitary_capacity(Math.round(Math.floor(room.getCapacity() * 0.7)));
 		return room;
 	}

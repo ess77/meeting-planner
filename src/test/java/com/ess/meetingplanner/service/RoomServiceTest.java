@@ -1,4 +1,4 @@
-package com.ess.meetingplanner.controller;
+package com.ess.meetingplanner.service;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.List;
@@ -41,7 +41,7 @@ public class RoomServiceTest {
 		List<Room> roomListFiltered = null;
 		int participants = 5;
 		
-		roomList = roomList.stream().map(Room::calculateSanitary_capacity).filter(room -> room.getSanitary_capacity() > participants).collect(Collectors.toList());
+		roomList = roomList.stream().map(Room::calculateSanitaryCapacity).filter(room -> room.getSanitary_capacity() > participants).collect(Collectors.toList());
 		
 		Room roomMinCapacity = roomService.getOptimizedPropsal(roomList, participants);
 		

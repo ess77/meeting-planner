@@ -138,7 +138,7 @@ public class PlanningService {
 		List<Room> roomList = roomRepository.findAll();
 
 		//set room sanitary_capacity
-		roomList = roomList.stream().map(Room::calculateSanitary_capacity).collect(Collectors.toList());
+		roomList = roomList.stream().map(Room::calculateSanitaryCapacity).collect(Collectors.toList());
 		
 		List<Room> roomList1 = roomList.stream().filter(room -> room.getSanitary_capacity() >= requiredCapacity).collect(Collectors.toList());
 		roomList1.stream().map(room -> room.getSanitary_capacity()).forEach(System.out::println);

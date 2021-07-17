@@ -1,9 +1,8 @@
-package com.ess.meetingplanner.controller;
+package com.ess.meetingplanner.service;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
 import java.time.LocalDateTime;
@@ -24,9 +23,6 @@ import com.ess.meetingplanner.model.MeetingType;
 import com.ess.meetingplanner.model.Room;
 import com.ess.meetingplanner.repository.MeetingRepository;
 import com.ess.meetingplanner.repository.RoomRepository;
-import com.ess.meetingplanner.service.PlanningService;
-import com.ess.meetingplanner.service.RoomRepositoryService;
-import com.ess.meetingplanner.service.RoomService;
 
 
 /**
@@ -40,10 +36,6 @@ public class PlanningServiceIntegrationByReunionTests {
 	/** Logger **/
 	private static final Logger LOGGER = LoggerFactory.getLogger(PlanningServiceIntegrationByReunionTests.class);
 	
-	@Autowired
-	private RoomRepositoryService roomRepositoryService;
-	
-//	@Autowired
 	@Mock
 	private PlanningService plannningService;
 	
@@ -96,7 +88,7 @@ public class PlanningServiceIntegrationByReunionTests {
     	//Cas Reunion1
         roomList = roomRepository.findByName("E3001");
         Room roomReunion1 = roomList.get(0);
-        Room.calculateSanitary_capacity(roomReunion1);
+        Room.calculateSanitaryCapacity(roomReunion1);
         when(plannningService.getPlanning(reunion1)).thenReturn(roomReunion1);
         assertEquals(roomReunion1, plannningService.getPlanning(reunion1));
         

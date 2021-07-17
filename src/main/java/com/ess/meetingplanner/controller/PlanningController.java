@@ -74,7 +74,7 @@ public class PlanningController {
 	@GetMapping("/listAllRooms")
 	public ModelAndView showRoomList(ModelAndView mav) {
 		List<Room> roomList = roomRepository.findAll();
-		roomList = roomList.stream().map(Room::calculateSanitary_capacity).collect(Collectors.toList());
+		roomList = roomList.stream().map(Room::calculateSanitaryCapacity).collect(Collectors.toList());
 		mav.addObject("roomList", roomList);
 		mav.setViewName("roomList");
 		LOGGER.info("showRoomList");
